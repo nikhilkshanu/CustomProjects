@@ -1,0 +1,36 @@
+<template>
+    <div>
+        <template if:true={wiredMovies.data}>
+            <template if:true={wiredMovies.data.movies.length}>
+                <ul class="slds-grid slds-grid_pull-padded slds-wrap">
+                    <template for:each={wiredMovies.data.movies} for:item="movie">
+                        <c-movie-tile
+                            key={movie.Id}
+                            movie={movie}
+                            class="slds-p-horizontal_small slds-size_1-of-1 slds-medium-size_1-of-3"
+                            onpeekenter={handlePeekEnter}
+                            onpeekleave={handlePeekLeave}
+                        ></c-movie-tile>
+                    </template>
+                </ul>
+            
+            <c-paginator
+                    page={page}
+                    pages={wiredMovies.data.pages}
+                    label="Movies"
+                    onpreviouspage={handlePagePrevious}
+                    onnextpage={handlePageNext}
+            ></c-paginator>
+            <c-movie-info-popup></c-movie-info-popup>
+           </template>
+
+            <template if:false={wiredMovies.data.movies.length}>
+                No Movies are matching the selected criteria.
+            </template>
+        </template>
+        <template if:true={wiredMovies.error}>
+            <h1> There was an unexpected Error: </h1>{wiredMovies.data.pages}
+        </template>
+    </div>   
+         
+</template>

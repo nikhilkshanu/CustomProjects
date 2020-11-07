@@ -1,0 +1,20 @@
+<template>
+    <li onmouseover={handleMouseOver} onmouseout={handleMouseOut}>
+        <a
+            onclick={handleMovieSelected}
+            class="slds-app-launcher__tile slds-text-link_reset slds-truncate"
+        >
+            <div class={avatarClass}>
+                <span>{movie.Rating__c}</span>
+            </div>
+            <div class="slds-app-launcher__tile-body">
+                <span class="slds-text-link">{movie.Name}</span>
+                <p>{movie.Genre__c}</p>
+                <c-rating rating={movie.Rating__c}></c-rating>
+            </div>
+
+        </a>
+
+    </li>
+    
+</template>

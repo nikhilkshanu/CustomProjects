@@ -1,0 +1,34 @@
+<template>
+    <template if:true={isVisible}>
+        <section
+            id="popup"
+            class="slds-popover slds-nubbin_left"
+            role="dialog"
+            style={style}
+        >
+        <div class="slds-popover__body">
+            <lightning-layout>
+                <lightning-layout-item>
+                    <lightning-icon
+                        icon-name="utility:feed"
+                        size="small"
+                        class="popup-icon"
+                    ></lightning-icon>
+                </lightning-layout-item>
+                <lightning-layout-item>
+                    <h3 class="slds-section__title">{_movie.Name}</h3>
+                </lightning-layout-item>
+            </lightning-layout>
+            <p>IMDB Rating: {movie.Rating__c}</p>
+            <p>Actors: {movie.Actor__c}</p>
+            <p>Genre: {movie.Genre__c}</p>
+            <p>Director: {movie.Director__c}</p>
+            <p>Revenue: {movie.Revenue__c}</p>
+            <p>Year: {movie.Year__c}</p>
+            
+        </div>
+    </section>
+
+    </template>
+    
+</template>
